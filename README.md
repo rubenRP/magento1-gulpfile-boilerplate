@@ -3,7 +3,7 @@ A gulpfile boilerplate for Magento 1.x projects
 
 ## Getting Started
 
-1. Setting the correct routes
+**Setting the correct routes**
 - magento.name : Define the project name
 - magento.pkg : Define your package
 - magento.theme : Define your theme

@@ -11,6 +11,7 @@ var cleanCSS = require('gulp-clean-css');
 var rename = require('gulp-rename');
 var sourcemaps = require('gulp-sourcemaps');
 var shell = require('gulp-shell');
+var bless = require('gulp-bless');
 
 // Magento Settings
 var magento = {};
@@ -69,6 +70,13 @@ gulp.task('minify', function () {
     ;
 });
 
+//Bless the CSS files for browser lt IE10
+gulp.task('bless', function() {
+    gulp.src(magento.dest + 'styles.css')
+        .pipe(bless())
+        .pipe(gulp.dest(magento.dest + 'splitCSS'));
+});
+
 //Compile and sync with browserSync
 gulp.task('watch', ['sync'], function() {
     gulp.watch(magento.src, ['sass']);
@@ -86,6 +94,7 @@ gulp.task('default', ['sass', 'minify']);
 //Build task for production mode: Compile, minify and generate CSS and JS
 gulp.task('build', [
     'sass',
+    'bless'
     'minify',
     'scripts',
 ]);

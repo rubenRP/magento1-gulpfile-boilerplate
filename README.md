@@ -25,5 +25,7 @@ Compile the SASS files
 Compile and reload browser styles using browserSync. Pay attention to the magento.domain var.
 5. SASS minify "gulp minify"
 Minify all de CSS
-6. JS minify "gulp scripts"
+6. Bless: "gulp bless"
+Bless styles CSS for IE version lower than 10
+7. JS minify "gulp scripts"
 Minify all the .js scripts using requireJS Optimizer
